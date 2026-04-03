@@ -34,5 +34,8 @@ app.post("/login", (req, res) => {
   }
 });
 
+// 🔥 INI PALING PENTING
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log("Server jalan"));
+app.listen(PORT, () => {
+  console.log("Server jalan di port " + PORT);
+});

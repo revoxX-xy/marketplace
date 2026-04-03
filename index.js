@@ -1,41 +1,12 @@
 const express = require("express");
 const app = express();
 
-app.use(express.json());
-
-let users = [];
-
-// home
 app.get("/", (req, res) => {
-  res.send("Marketplace API jalan 🔥");
+  res.send("SERVER HIDUP 🔥");
 });
 
-// register
-app.post("/register", (req, res) => {
-  const { username, password } = req.body;
-
-  users.push({ username, password });
-
-  res.json({ message: "Register berhasil" });
-});
-
-// login
-app.post("/login", (req, res) => {
-  const { username, password } = req.body;
-
-  const user = users.find(
-    (u) => u.username === username && u.password === password
-  );
-
-  if (user) {
-    res.json({ message: "Login berhasil" });
-  } else {
-    res.json({ message: "Login gagal" });
-  }
-});
-
-// 🔥 INI PALING PENTING
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+
+app.listen(PORT, "0.0.0.0", () => {
   console.log("Server jalan di port " + PORT);
 });
